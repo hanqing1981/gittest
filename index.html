@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text" name="uname">
+
+<button class="btn">submit</button>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script>
+    $('.btn').click(fucntion(){
+        var usname=$('.uname').val();
+        $.ajax({
+            url:'/index/',
+            type:'post',
+            data:{uname:uname, csrfmiddlewaretoken:'{{csrf_token}}'},
+            success: function(res){
+                console.log(res);
+
+            }
+        })
+
+    })
+
+
+</script>
+
+</html>
